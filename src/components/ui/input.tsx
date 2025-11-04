@@ -1,3 +1,4 @@
+// biome-ignore lint: justified usage for this case
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
