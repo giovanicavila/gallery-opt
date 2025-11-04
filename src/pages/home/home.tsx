@@ -102,7 +102,7 @@ const LazyImage = memo(
 
 LazyImage.displayName = "LazyImage";
 
-export function Home() {
+export function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredPhotos = useMemo(
