@@ -5,6 +5,10 @@ import type { InlineConfig, UserConfig } from "vite";
 import { defineConfig } from "vite";
 // https://vite.dev/config/
 export default defineConfig({
+	// Base URL - importante para GitHub Pages
+	// Se o repositório for username.github.io, use '/'
+	// Se for username.github.io/repo-name, use '/repo-name/'
+	base: "/gallery-opt/",
 	plugins: [react(), tailwindcss()],
 	resolve: {
 		alias: {

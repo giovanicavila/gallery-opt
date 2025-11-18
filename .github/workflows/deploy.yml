@@ -1,0 +1,83 @@
+# Nome do workflow - aparece na aba Actions do GitHub
+name: Deploy to GitHub Pages
+
+# Define quando o workflow será executado
+on:
+  # Executa quando houver push na branch main
+  push:
+    branches: [ main ]
+  
+  # Permite executar manualmente pela aba Actions
+  workflow_dispatch:
+
+# Define permissões necessárias para o workflow
+permissions:
+  contents: read      # Ler o código do repositório
+  pages: write        # Escrever no GitHub Pages
+  id-token: write     # Criar token para deploy
+
+# Garante que apenas um deploy rode por vez
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Define os trabalhos (jobs) que serão executados
+jobs:
+  # Job de build - compila o projeto
+  build:
+    runs-on: ubuntu-latest  # Sistema operacional da máquina virtual
+    
+    steps:
+      # 1. Checkout - baixa o código do repositório
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      # 2. Setup Node - configura a versão do Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'  # Cache de dependências para acelerar builds
+      
+      # 3. Instala as dependências do projeto
+      - name: Install dependencies
+        run: npm ci  # npm ci é mais rápido e confiável para CI/CD
+      
+      # 4. Executa os testes
+      - name: Run tests
+        run: npm test
+      
+      # 5. Executa o linter
+      - name: Run linter
+        run: npm run lint
+      
+      # 6. Configura o GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      # 7. Build do projeto
+      - name: Build
+        run: npm run build
+        
+          # Se estiver usando subpath, configure aqui
+          # NODE_ENV: production
+      
+      # 8. Upload dos arquivos gerados para o GitHub Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist  # Pasta onde o Vite gera o build
+  
+  # Job de deploy - publica no GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    needs: build  # Só executa após o build ser bem-sucedido
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
