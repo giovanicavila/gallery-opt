@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import { Header } from "./Header";
+import { ThemeProvider } from "@/contexts/theme-context";
+import { Header } from "./header";
 
 describe("Header component", () => {
 	it("should render header on the top", () => {

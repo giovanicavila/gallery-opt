@@ -2,9 +2,8 @@
 // Agora, criar configuração básica para ultracite
 
 module.exports = {
-  extends: ["ultracite"],
-  rules: {
-    // Adicione regras customizadas aqui, se necessário
-  },
+	extends: ["ultracite"],
+	rules: {
+		// Adicione regras customizadas aqui, se necessário
+	},
 };
-  

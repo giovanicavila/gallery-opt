@@ -1,20 +1,18 @@
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import { PhotoModal } from "@/components/photoModal/PhotoModal";
-import { GALLERY_PHOTOS } from "./MockImages";
-import { CartComponent } from "./CartCompent";
+/* import { PhotoModal } from "@/components/photoModal/photo-modal";
+import { GALLERY_PHOTOS } from "./mock-images"; */
+import { CartComponent } from "./cart-compent";
 
 export function HomePage() {
-  const [openPhoto, setOpenPhoto] = useState(false);
-  const [photoId, setPhotoId] = useState<number | null>(null);
+	/* const [openPhoto, setOpenPhoto] = useState(false);
+  const [photoId, setPhotoId] = useState<number | null>(null); */
 
-  const handleOpenPhoto = (id: number) => {
+	/* const handleOpenPhoto = (id: number) => {
     setPhotoId(id);
     setOpenPhoto(true);
-  };
+  }; */
 
- /*  const numberState = useState<number>(0); // tipo: [number, Dispatch<SetStateAction<number>>]
+	/*  const numberState = useState<number>(0); // tipo: [number, Dispatch<SetStateAction<number>>]
 
   const number = numberState[0];
   const setNumber = numberState[1];
@@ -22,23 +20,23 @@ export function HomePage() {
   // uso
   setNumber((prev) => prev + 1); */
 
-  return (
-    <main>
-      <div className="mb-8 flex items-center justify-between">
-        <h2 className="font-light text-2xl text-foreground tracking-wide">
-          — GALLERY
-        </h2>
-      </div>
+	return (
+		<main>
+			<div className="mb-8 flex items-center justify-between">
+				<h2 className="font-light text-2xl text-foreground tracking-wide">
+					— GALLERY
+				</h2>
+			</div>
 
-      {/* Search Bar */}
-      <div className="mb-8">
-        <Input type="text" placeholder="Search gallery..." />
-      </div>
+			{/* Search Bar */}
+			<div className="mb-8">
+				<Input type="text" placeholder="Search gallery..." />
+			</div>
 
-      <CartComponent />
+			<CartComponent />
 
-      {/* Gallery Grid */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
+			{/* Gallery Grid */}
+			{/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
         {GALLERY_PHOTOS.map((photo) => (
           <AspectRatio
             key={photo.id}
@@ -63,6 +61,6 @@ export function HomePage() {
           onClose={() => setOpenPhoto(false)}
         />
       )} */}
-    </main>
-  );
+		</main>
+	);
 }

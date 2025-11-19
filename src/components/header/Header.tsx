@@ -1,5 +1,5 @@
 import { Menu } from "lucide-react";
-import { ModeToggle } from "../mode-toggle/ModeToggle";
+import { ModeToggle } from "../mode-toggle/mode-toggle";
 import { Button } from "../ui/button";
 
 export function Header() {
