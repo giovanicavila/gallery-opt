@@ -44,7 +44,7 @@ jobs:
       
       # 4. Executa os testes
       - name: Run tests
-        run: bun test
+        run: bun run test
       
       # 5. Executa o linter
       - name: Run linter
