@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 /* import { PhotoModal } from "@/components/photoModal/photo-modal";
 import { GALLERY_PHOTOS } from "./mock-images"; */
-import { CartComponent } from "./cart-compent";
+import { CartComponent } from "./cart-component";
 
 export function HomePage() {
 	/* const [openPhoto, setOpenPhoto] = useState(false);
