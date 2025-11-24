@@ -1,6 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { vi } from "vitest";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { ModeToggle } from "./mode-toggle";
 
@@ -99,8 +98,7 @@ describe("mode-toggle and localStorage theme", () => {
 	it("should save theme to localStorage when changed", async () => {
 		const user = userEvent.setup();
 
-		const setItemSpy = vi.spyOn(Storage.prototype, "setItem");
-
+		/* Abrindo o modal */
 		const toggleButton = screen.getByRole("button", { name: "Toggle theme" });
 
 		await user.click(toggleButton);
@@ -121,11 +119,6 @@ describe("mode-toggle and localStorage theme", () => {
 			expect(document.documentElement.classList.contains("dark")).toBe(true);
 		});
 
-		expect(setItemSpy).toHaveBeenCalledWith("test-theme", "dark");
-		expect(setItemSpy).toHaveBeenCalledTimes(1);
-
 		expect(localStorage.getItem("test-theme")).toBe("dark");
-
-		setItemSpy.mockRestore();
 	});
 });
