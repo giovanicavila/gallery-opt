@@ -23,6 +23,6 @@ export type RandomPhotoResponseType = {
 		regular: string;
 		small: string;
 		thumb: string;
-	}
+	};
 	alt_description: string;
 };

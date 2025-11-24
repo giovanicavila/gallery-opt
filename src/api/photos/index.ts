@@ -1,4 +1,4 @@
-import api from "../BaseURL";
+import api from "../base-url";
 import type { RandomPhotoResponseType } from "./@types/random-photo";
 
 export async function getRandomPhoto(
