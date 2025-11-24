@@ -50,7 +50,6 @@ export function HomePage() {
 							}}
 						>
 							<AspectRatio
-								// biome-ignore lint/style/noMagicNumbers: this is a common aspect ratio
 								ratio={16 / 9}
 								className="bg-muted rounded-md hover:scale-105 hover:brightness-75 transition-transform duration-200 ease-in-out overflow-hidden"
 							>
